@@ -1,0 +1,315 @@
+/* style.css */
+
+/* Apply to the whole page */
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Quattrocento Sans', sans-serif; /* Change font here */
+  background-color: #fef8f9; /* Background color */
+  color: #0012ff; /* Text color */
+  text-align: center;
+}
+
+/* Default: top-aligned for non-home pages */
+body.top-page {
+  display: block;      /* normal flow ß*/
+  height: auto;        /* do not stretch to viewport */
+  margin: 0;
+  padding: 0;
+}
+
+/* Home page: centered vertically */
+body.home-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* vertical center */
+  align-items: center;      /* horizontal center */
+  height: 100vh;            /* fill viewport height */
+  margin: 0;
+}
+
+/* Title */
+h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+/* Subtitle (emoji or tagline) */
+.subtitle {
+  margin: 0.5rem 0;
+  font-size: 2rem;
+}
+
+/* Highlighted text */
+.highlight {
+  margin: 1.5rem 0;
+  font-size: 4rem;
+}
+
+/* Navigation links */
+nav a {
+  margin: 0 1rem;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: inherit; /* Matches text color */
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 50%;   /* image won’t be wider than 80% of the page */
+  height: auto;     /* keeps the correct proportions */
+  border-radius: 10px; /* optional, makes corners rounded */
+  display: block;   /* ensures spacing works nicely */
+  margin: 20px auto; /* centers image and adds top/bottom space */
+}
+
+section#about {
+  text-align: left;  /* aligns all text in the section to the left */
+  max-width: 900px;  /* optional: keeps text from stretching too wide */
+  margin: 0 auto;    /* centers the section on the page */
+  padding: 20px;     /* adds space around the section */
+}
+
+section#about p {
+  margin-bottom: 20px; /* space between paragraphs */
+  line-height: 1.6;    /* makes lines within a paragraph easier to read */
+  font-size: 18px;      /* optional: larger, more readable text */
+}
+
+.about-text {
+  color: #000000;  /* black */
+  text-align: left;
+  line-height: 1.6; /* readability */
+}
+
+
+.top-nav {
+  display: flex;
+  justify-content: space-between; /* pushes links to far left and right */
+  padding: 20px;
+}
+
+.top-nav a {
+  text-decoration: none;  /* removes underline */
+  color: #2c2c2c;         /* simple text color */
+  font-weight: bold;
+  font-size: 18px;
+  padding: 8px 16px;      /* optional: adds some clickable space */
+}
+
+.top-nav a:hover {
+  text-decoration: underline; /* subtle hover effect */
+}
+
+
+.reel-link {
+  color: red;             /* changes text color */
+  text-decoration: none;  /* removes underline */
+  font-weight: bold;      /* optional: makes it stand out */
+  font-size: 20px;        /* optional: slightly larger text */
+}
+
+.reel-link:hover {
+  text-decoration: underline; /* subtle hover effect */
+}
+
+/* --- Projects Container --- */
+.projects-container {
+  display: flex;
+  gap: 40px;            /* space between projects */
+  justify-content: center;
+  flex-wrap: wrap;       /* stack on smaller screens */
+  margin-top: 20px;
+}
+
+/* --- Individual Project --- */
+.project {
+  text-align: center;
+  max-width: 45%;      /* slightly wider project container */
+}
+
+/* --- Project Image --- */
+.project-image {
+  width: 500px;          /* increase width */
+  height: 400px;         /* increase height to show more of the image */
+  overflow: hidden;
+  border-radius: 8px;
+  margin: 0 auto 10px auto;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* keeps entire image visible */
+  display: block;
+  background-color: #f0f0f0; /* optional: adds subtle background if aspect ratio leaves empty space */
+}
+
+.projects-page {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* --- Project page ----- */
+
+.sidebar {
+  width: 25%;
+  padding: 10px; 
+  text-align: left;
+}
+
+.sidebar h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-weight: normal;   /* Remove bold */
+  color: #1818e8;        /* Black title */
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 10px 0; 
+  color: #343434;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #343434;        /* Blue project names */
+  font-weight: normal;    /* Remove bold */
+  display: block;
+  padding: 8px;
+  border-radius: 4px;
+  transition: none;
+}
+
+.sidebar a.active,
+.sidebar a:hover {
+  background-color: transparent; /* Optional hover effect */
+}
+
+.project-detail {
+  width: 75%;
+  text-align: left;
+  display: none; 
+  color: #000000;
+}
+
+.project-detail.active {
+  display: block;
+}
+
+.cover-image {
+  display: block;
+  width: 400px;       /* fixed width */
+  max-width: 100%;    /* scales down on small screens */
+  height: auto;
+  margin: 0 0 15px 0;
+}
+
+.project-description {
+  text-align: left;     /* align text left */
+  margin-bottom: 20px;  /* space below description */
+}
+
+.project-description p {
+  margin-bottom: 15px;  /* space between paragraphs */
+  line-height: 1.5;     /* readability */
+}
+
+.track-listing {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.track-listing h2 {
+  font-style: italic;     /* Italic */
+  font-weight: normal;    /* Not bold */
+  color: #000000;         /* Black */
+  margin-bottom: 10px;    /* Optional spacing below the title */
+}
+
+.track-listing ol {
+  padding-left: 20px;
+}
+
+.track-listing ol li {
+  margin-bottom: 10px; /* Adjust spacing as needed */
+}
+
+.additional-images {
+  display: flex;       /* put images side by side */
+  gap: 10px;           /* space between images */
+  margin-top: 20px;
+}
+
+.additional-images img {
+  width: 48%;          /* adjust so both fit on one line */
+  height: auto;        /* keep aspect ratio */
+  display: block;
+}
+
+a[href^="mailto"] {
+  color: #0012ff;           /* make the email link blue */
+  text-decoration: none; /* remove underline by default */
+  font-weight: bold;     /* keep it bold */
+}
+
+a[href^="mailto"]:hover {
+  text-decoration: underline; /* underline only on hover */
+}
+
+* {
+  font-family: 'Quattrocento Sans', sans-serif !important;
+}
+
+/* Masonry photo gallery */
+
+.masonry {
+  column-count: 3;        /* Number of columns on large screens */
+  column-gap: 4px;        /* Gap between columns */
+  width: 95%;
+  margin: 0 auto;
+}
+
+.masonry img {
+  width: 100%;            /* Fill the column width */
+  margin-bottom: 4px;     /* Space between images vertically */
+  display: block;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .masonry {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 800px) {
+  .masonry {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 500px) {
+  .masonry {
+    column-count: 1;
+  }
+}
+
+.masonry img:hover {
+  transform: scale(1.15); /* subtle zoom on hover */
+}
