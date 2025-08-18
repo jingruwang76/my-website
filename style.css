@@ -50,7 +50,13 @@ h1 {
   font-size: 4rem;
 }
 
-/* Navigation links */
+/* Default horizontal layout */
+nav {
+  display: flex;
+  justify-content: center; /* center links */
+  align-items: center;
+}
+
 nav a {
   margin: 0 1rem;
   font-size: 1.2rem;
@@ -60,6 +66,18 @@ nav a {
 
 nav a:hover {
   text-decoration: underline;
+}
+
+/* Small screens: stack vertically */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column; /* stack links */
+    gap: 10px;              /* spacing between links */
+  }
+
+  nav a {
+    margin: 0;              /* remove horizontal margin */
+  }
 }
 
 img {
@@ -120,7 +138,7 @@ section#about p {
   text-decoration: underline; /* subtle hover effect */
 }
 
-/* --- Projects Container --- */
+/* --- Film Projects Container --- */
 .projects-container {
   display: flex;
   gap: 40px;            /* space between projects */
@@ -172,13 +190,15 @@ section#about p {
   flex-direction: row;
   gap: 20px;
   padding: 20px;
+  align-items: flex-start; /* ensures sidebar stays at top */
 }
 
-/* --- Project page ----- */
+/* --- Albums Project page ----- */
 
 .sidebar {
-  width: 25%;
-  padding: 10px; 
+  flex: 0 0 200px;   /* or whatever width you want */
+  display: flex;
+  flex-direction: column;
   text-align: left;
 }
 
@@ -187,6 +207,7 @@ section#about p {
   margin-bottom: 15px;
   font-weight: normal;   /* Remove bold */
   color: #1818e8;        /* Black title */
+  align-self: flex-start;
 }
 
 .sidebar ul {
@@ -266,6 +287,7 @@ section#about p {
 .additional-images {
   display: flex;       /* put images side by side */
   gap: 10px;           /* space between images */
+  justify-content: center; /* center images horizontally */
   margin-top: 20px;
 }
 
@@ -282,7 +304,6 @@ section#about p {
   }
 
   .additional-images {
-    flex-direction: column;   /* stack vertically */
     align-items: center;
     gap: 20px;
   }
@@ -370,6 +391,19 @@ a[href^="mailto"]:hover {
 }
 
 /* Masonry photo gallery */
+/* Default: text spans full width */
+.photo-intro {
+  margin: 0 0 20px 0;  /* centers content */
+}
+
+/* Small screens */
+@media (max-width: 768px) {
+  .photo-intro {
+    max-width: 70%;    
+    text-align: center;   /* center text */
+    margin: 0 auto 15px; /* slightly smaller spacing on mobile */
+  }
+}
 
 .masonry {
   column-count: 3;        /* Number of columns on large screens */
