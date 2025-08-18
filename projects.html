@@ -15,6 +15,10 @@
   </nav>
 
   <div class="projects-page">
+
+    <!-- Hamburger Menu Button (only visible on mobile) -->
+    <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+
   <!-- Left Sidebar -->
   <nav class="sidebar">
     <h2>ALBUMS</h2> <!-- Header added -->
@@ -23,6 +27,8 @@
       <li><a href="#project2" class="project-link" data-project="project2">2. solo piano/synth</a></li>
       <!-- Add more projects as needed -->
     </ul>
+
+
   </nav>
 
   <!-- Main Content Area -->
@@ -86,6 +92,17 @@
       target.classList.add('active');
     });
   });
+</script>
+
+<script>
+  const toggleButton = document.querySelector('.menu-toggle');
+    const sidebar = document.querySelector('.sidebar');
+
+    toggleButton.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
+        sidebar.style.display = sidebar.classList.contains('active') ? 'block' : 'none';
+    });
+
 </script>
 
 

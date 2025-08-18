@@ -133,12 +133,15 @@ section#about p {
 .project {
   text-align: center;
   max-width: 45%;      /* slightly wider project container */
+  flex: 1 1 300px;            /* allows resizing nicely */
+
 }
 
 /* --- Project Image --- */
 .project-image {
-  width: 500px;          /* increase width */
-  height: 400px;         /* increase height to show more of the image */
+  width: 100%;                /* responsive: take available space */
+  max-width: 500px;           /* don’t grow beyond this on desktop */
+  aspect-ratio: 5 / 4;        /* keeps proportion (instead of fixed height) */
   overflow: hidden;
   border-radius: 8px;
   margin: 0 auto 10px auto;
@@ -150,6 +153,18 @@ section#about p {
   object-fit: contain;   /* keeps entire image visible */
   display: block;
   background-color: #f0f0f0; /* optional: adds subtle background if aspect ratio leaves empty space */
+}
+
+/* --- Responsive Tweaks --- */
+@media (max-width: 768px) {
+  .project {
+    max-width: 100%;          /* full width on tablets/phones */
+  }
+
+  .project-image {
+    max-width: 100%;          /* image scales to screen width */
+    aspect-ratio: auto;       /* let image dictate height */
+  }
 }
 
 .projects-page {
@@ -260,6 +275,25 @@ section#about p {
   display: block;
 }
 
+@media (max-width: 768px) {
+  .project-description {
+    padding: 0 15px;
+    font-size: 0.95rem;
+  }
+
+  .additional-images {
+    flex-direction: column;   /* stack vertically */
+    align-items: center;
+    gap: 20px;
+  }
+
+  .additional-images img {
+    width: 100%;    /* increase size to nearly full width on small screens */
+    height: auto;
+  }
+}
+
+
 a[href^="mailto"] {
   color: #0012ff;           /* make the email link blue */
   text-decoration: none; /* remove underline by default */
@@ -272,6 +306,67 @@ a[href^="mailto"]:hover {
 
 * {
   font-family: 'Quattrocento Sans', sans-serif !important;
+}
+
+/* --- Sidebar (desktop) --- */
+.sidebar {
+  width: 220px;
+  background: none;   /* removed background shading */
+  padding: 20px;
+}
+
+/* --- Toggle button (hidden on desktop) --- */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #000;   /* black icon */
+  margin: 10px;
+  z-index: 1001; /* stays above content */
+}
+
+/* Content area */
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+/* --- Responsive for small screens --- */
+@media (max-width: 768px) {
+  /* Hide sidebar by default */
+  .sidebar {
+    display: none;
+    position: absolute;
+    top: 50px;   /* below the toggle button */
+    left: 0;
+    width: 100%;
+    background: white;   /* clean background so text is visible */
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+
+  /* Sidebar when active */
+  .sidebar.active {
+    display: block;
+    animation: slideDown 0.3s ease;
+  }
+
+  /* Show hamburger toggle */
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+}
+
+/* --- Slide down animation --- */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Masonry photo gallery */
