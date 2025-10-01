@@ -329,6 +329,17 @@ a[href^="mailto"]:hover {
   font-family: 'Quattrocento Sans', sans-serif !important;
 }
 
+.bandcamp-link a {
+  color: red;             /* changes text color */
+  text-decoration: underline;
+  font-weight: normal;  /* or bold if you want it stronger */
+}
+
+.bandcamp-link a:hover {
+  opacity: 0.8;         /* subtle hover effect (optional) */
+}
+
+
 /* --- Sidebar (desktop) --- */
 .sidebar {
   width: 220px;
