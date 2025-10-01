@@ -129,13 +129,13 @@ section#about p {
 
 .reel-link {
   color: red;             /* changes text color */
-  text-decoration: none;  /* removes underline */
+  /* text-decoration: none;  removes underline */
   font-weight: bold;      /* optional: makes it stand out */
   font-size: 20px;        /* optional: slightly larger text */
 }
 
 .reel-link:hover {
-  text-decoration: underline; /* subtle hover effect */
+  opacity: 0.8;         /* subtle hover effect (optional) */
 }
 
 /* --- Film Projects Container --- */
@@ -332,7 +332,7 @@ a[href^="mailto"]:hover {
 .bandcamp-link a {
   color: red;             /* changes text color */
   text-decoration: underline;
-  font-weight: normal;  /* or bold if you want it stronger */
+  font-weight: bold;      /* optional: makes it stand out */
 }
 
 .bandcamp-link a:hover {
@@ -452,4 +452,8 @@ a[href^="mailto"]:hover {
 
 .masonry img:hover {
   transform: scale(1.15); /* subtle zoom on hover */
+}
+
+a {
+  color: inherit;          /* makes link use the page’s text color */
 }
